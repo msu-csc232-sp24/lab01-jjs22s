@@ -78,7 +78,6 @@ double maxGrade(int numElements, double gradeList[]){
             highGrade = gradeList[counter];
             
         }
-        return highGrade;
     }
     return highGrade;
 }
@@ -95,7 +94,6 @@ int indexOfMaxGrade(double gradeArray[][NUM_COURSES], int numRows, int numCols){
                 highCourse = countRow + 1;
                 
             }
-            return highCourse;
         }
     }
     return highCourse;
