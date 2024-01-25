@@ -19,7 +19,7 @@
 
 #define FINISHED_PART_1 TRUE
 #define FINISHED_PART_2 TRUE
-#define FINISHED_PART_3 FALSE
+#define FINISHED_PART_3 TRUE
 
 #include <algorithm>
 #include <cassert>
@@ -65,14 +65,40 @@ double grades[ROSTER_SIZE];
 
 double gradeBook[NUM_COURSES][ROSTER_SIZE];
 
-void maxGrade(double gradeList[], int numElements);
+double maxGrade(int numElements, double gradeList[]);
 
-void indexOfMaxGrade(double gradeArray[][NUM_COURSES], int numRows, int numCols);
+int indexOfMaxGrade( int numRows, int numCols, double gradeArray[][ROSTER_SIZE]);
 
-// TODO: 3.1 - Implement the specified function below
+double maxGrade(int numElements, double gradeList[]){
 
+    double highGrade = 0;
 
-// TODO: 3.2 Implement the specified function below
+    for (int counter = 0; counter < numElements; counter++){
+         if (gradeList[counter] > highGrade){
+            highGrade = gradeList[counter];
+            
+        }
+        return highGrade;
+    }
+    return highGrade;
+}
 
+int indexOfMaxGrade(double gradeArray[][NUM_COURSES], int numRows, int numCols){
+
+    int highGrade = 0; 
+    int highCourse = 0; 
+
+    for (int countRow = 0; countRow < numRows; countRow++){
+        for (int countCol = 0; countCol < numCols; countCol++){
+            if (gradeArray[countRow][countCol] > highGrade){
+                highGrade = gradeArray[countRow][countCol];
+                highCourse = countRow + 1;
+                
+            }
+            return highCourse;
+        }
+    }
+    return highCourse;
+}
 
 #endif // MSU_CSC232_H_
