@@ -67,9 +67,9 @@ double gradeBook[NUM_COURSES][ROSTER_SIZE];
 
 double maxGrade(int numElements, double gradeList[]);
 
-int indexOfMaxGrade( int numRows, int numCols, double gradeArray[][ROSTER_SIZE]);
+int indexOfMaxGrade(int numRows, int numCols, double gradeArray[NUM_COURSES][ROSTER_SIZE]);
 
-double maxGrade(int numElements, double gradeList[]){
+double maxGrade(int numElements, double gradeList[ROSTER_SIZE]){
 
     double highGrade = 0;
 
@@ -82,7 +82,7 @@ double maxGrade(int numElements, double gradeList[]){
     return highGrade;
 }
 
-int indexOfMaxGrade(double gradeArray[][NUM_COURSES], int numRows, int numCols){
+int indexOfMaxGrade( int numRows, int numCols, double gradeArray[NUM_COURSES][ROSTER_SIZE]){
 
     int highGrade = 0; 
     int highCourse = 0; 
@@ -91,7 +91,7 @@ int indexOfMaxGrade(double gradeArray[][NUM_COURSES], int numRows, int numCols){
         for (int countCol = 0; countCol < numCols; countCol++){
             if (gradeArray[countRow][countCol] > highGrade){
                 highGrade = gradeArray[countRow][countCol];
-                highCourse = countRow + 1;
+                highCourse = countRow;
                 
             }
         }
